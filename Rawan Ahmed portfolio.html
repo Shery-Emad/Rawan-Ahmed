@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rawan Ahmed | AI & ML Student</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#07111f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#00d4ff30;
+      filter:blur(120px);
+      top:-120px;
+      left:-100px;
+      z-index:-1;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:400px;
+      height:400px;
+      background:#8b5cf630;
+      filter:blur(120px);
+      bottom:-120px;
+      right:-80px;
+      z-index:-1;
+    }
+
+    nav{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 8%;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(18px);
+      background:rgba(5,12,22,0.55);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#00d4ff;
+      letter-spacing:1px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      font-size:15px;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0%;
+      height:2px;
+      background:#00d4ff;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:120px 8% 80px;
+      gap:60px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:320px;
+    }
+
+    .hero-text h3{
+      font-size:24px;
+      color:#cbd5e1;
+      margin-bottom:10px;
+    }
+
+    .hero-text h1{
+      font-size:68px;
+      line-height:1.1;
+      margin-bottom:18px;
+      font-weight:800;
+    }
+
+    .hero-text h1 span{
+      color:#00d4ff;
+    }
+
+    .hero-text h2{
+      font-size:30px;
+      font-weight:500;
+      margin-bottom:22px;
+      color:#94a3b8;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      line-height:1.9;
+      max-width:620px;
+      margin-bottom:35px;
+      font-size:16px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 34px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.4s;
+      border:2px solid transparent;
+    }
+
+    .primary{
+      background:linear-gradient(135deg,#00d4ff,#6d5dfc);
+      color:white;
+      box-shadow:0 10px 30px rgba(0,212,255,0.3);
+    }
+
+    .secondary{
+      border:2px solid #00d4ff;
+      color:#00d4ff;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px) scale(1.03);
+    }
+
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      min-width:320px;
+    }
+
+    .image-box{
+      width:370px;
+      height:430px;
+      border-radius:35px;
+      background:linear-gradient(
+      145deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(15px);
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 25px 60px rgba(0,0,0,0.45);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .image-box::before{
+      content:'';
+      position:absolute;
+      width:220px;
+      height:220px;
+      background:#00d4ff40;
+      border-radius:50%;
+      filter:blur(80px);
+      top:-40px;
+      right:-20px;
+    }
+
+    .image-box i{
+      font-size:180px;
+      color:#00d4ff;
+      z-index:2;
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    .section-title span{
+      color:#00d4ff;
+    }
+
+    .section-title p{
+      color:#94a3b8;
+      max-width:650px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .about-box{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:50px;
+      line-height:2;
+      color:#dbeafe;
+      font-size:17px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:25px;
+    }
+
+    .skill-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:35px 25px;
+      border-radius:25px;
+      text-align:center;
+      transition:0.4s;
+      backdrop-filter:blur(12px);
+    }
+
+    .skill-card:hover{
+      transform:translateY(-12px);
+      border-color:#00d4ff;
+      box-shadow:0 15px 35px rgba(0,212,255,0.18);
+    }
+
+    .skill-card i{
+      font-size:52px;
+      margin-bottom:18px;
+      color:#00d4ff;
+    }
+
+    .skill-card h3{
+      margin-bottom:12px;
+      font-size:22px;
+    }
+
+    .skill-card p{
+      color:#cbd5e1;
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    .certificate-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:35px;
+    }
+
+    .certificate-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      overflow:hidden;
+      transition:0.4s;
+      backdrop-filter:blur(12px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.25);
+    }
+
+    .certificate-card:hover{
+      transform:translateY(-10px);
+      border-color:#00d4ff;
+    }
+
+    .certificate-card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+    }
+
+    .certificate-content{
+      padding:30px;
+    }
+
+    .certificate-content h3{
+      font-size:26px;
+      margin-bottom:15px;
+      color:#00d4ff;
+    }
+
+    .certificate-content p{
+      color:#cbd5e1;
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+
+    .certificate-info{
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+    }
+
+    .info-box{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      background:rgba(255,255,255,0.05);
+      padding:16px 20px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .info-box i{
+      color:#00d4ff;
+      font-size:20px;
+    }
+
+    .contact-box{
+      text-align:center;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:60px 30px;
+      border-radius:30px;
+    }
+
+    .contact-box h3{
+      font-size:34px;
+      margin-bottom:15px;
+    }
+
+    .contact-box p{
+      color:#cbd5e1;
+      margin-bottom:30px;
+      line-height:1.8;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .socials a{
+      width:55px;
+      height:55px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      text-decoration:none;
+      color:white;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+      font-size:20px;
+    }
+
+    .socials a:hover{
+      background:#00d4ff;
+      transform:translateY(-6px);
+    }
+
+    footer{
+      text-align:center;
+      padding:28px;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:50px;
+    }
+
+    @media(max-width:992px){
+
+      .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+      }
+
+      .hero-text p{
+        margin:auto auto 35px;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:52px;
+      }
+
+      .skills-container{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      nav ul{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .hero-text h2{
+        font-size:22px;
+      }
+
+      .image-box{
+        width:100%;
+        max-width:340px;
+      }
+
+      .section-title h2{
+        font-size:34px;
+      }
+
+      .about-box{
+        padding:35px 25px;
+      }
+
+      .skills-container{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <div class="logo">Rawan.</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificate">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h3>Hello, I'm</h3>
+
+      <h1>Rawan <span>Ahmed</span></h1>
+
+      <h2>AI & Machine Learning Student</h2>
+
+      <p>
+        Passionate Computer Science student interested in
+        Artificial Intelligence, Machine Learning,
+        Problem Solving, and Smart Technologies.
+        Skilled in Python and C++ programming.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#certificate" class="btn primary">
+          View Certificates
+        </a>
+
+        <a href="#contact" class="btn secondary">
+          Contact Me
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+
+      <div class="image-box">
+        <i class="fa-solid fa-brain"></i>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="about">
+
+    <div class="section-title">
+
+      <h2>About <span>Me</span></h2>
+
+      <p>
+        AI student passionate about building smart systems and solving problems.
+      </p>
+
+    </div>
+
+   <div class="about-box">
+
+  I am a Computer Science student at Fayoum University
+  specializing in Artificial Intelligence and Machine Learning
+  (2023 - 2027).<br>
+
+  I have experience in Python and C++ programming
+  and I enjoy solving programming problems and improving
+  my logical thinking skills.
+
+  I completed AI training programs and technical courses
+  including Huawei ICT Academy HCIA-AI and
+  Sprints x Microsoft Python Training.
+
+</div>
+
+  </section>
+
+  <section id="skills">
+
+    <div class="section-title">
+
+      <h2>My <span>Skills</span></h2>
+
+      <p>
+        Technologies and fields I focus on.
+      </p>
+
+    </div>
+
+    <div class="skills-container">
+
+      <div class="skill-card">
+
+        <i class="fa-solid fa-brain"></i>
+
+        <h3>Artificial Intelligence</h3>
+
+        <p>
+          Exploring intelligent systems and AI technologies.
+        </p>
+
+      </div>
+
+      <div class="skill-card">
+
+        <i class="fa-solid fa-microchip"></i>
+
+        <h3>Machine Learning</h3>
+
+        <p>
+          Learning predictive models and smart algorithms.
+        </p>
+
+      </div>
+
+      <div class="skill-card">
+
+        <i class="fa-brands fa-python"></i>
+
+        <h3>Python</h3>
+
+        <p>
+          Building AI projects and solving programming tasks.
+        </p>
+
+      </div>
+
+      <div class="skill-card">
+
+        <i class="fa-solid fa-code"></i>
+
+        <h3>C++</h3>
+
+        <p>
+          Strong foundation in problem solving and programming.
+        </p>
+
+      </div>
+
+      <div class="skill-card">
+
+        <i class="fa-solid fa-laptop-code"></i>
+
+        <h3>Problem Solving</h3>
+
+        <p>
+          Practicing algorithms and improving logical thinking.
+        </p>
+
+      </div>
+
+      <div class="skill-card">
+
+        <i class="fa-solid fa-database"></i>
+
+        <h3>Data Analysis</h3>
+
+        <p>
+          Working with data and extracting insights.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="certificate">
+
+    <div class="section-title">
+
+      <h2>My <span>Certificates</span></h2>
+
+      <p>
+        Courses and training programs I successfully completed.
+      </p>
+
+    </div>
+
+    <div class="certificate-grid">
+
+      <div class="certificate-card">
+
+        <img src="https://www.linkedin.com/dms/prv/image/v2/D4D06AQFvZ--egOyjFA/messaging-image-720/B4DZ4oAyDmHMAU-/0/1778787754763?m=AQKSoT5bNSTZnAAAAZ4oAykY-WNPa_Dj4q0ZiOIYOqbwiF-16d2n7vrRZ8E&ne=1&v=beta&t=pWqSi7JO8dC3-ss7bKkERFXwcTmEdXGN61g5xUPBlz0" alt="Huawei Certificate">
+
+        <div class="certificate-content">
+
+          <h3>Huawei HCIA-AI V4.0</h3>
+
+          <p>
+            Successfully completed the Huawei ICT Academy
+            HCIA-AI V4.0 Course and examination.
+          </p>
+
+          <div class="certificate-info">
+
+            <div class="info-box">
+              <i class="fa-solid fa-building-columns"></i>
+              <span>Huawei ICT Academy</span>
+            </div>
+
+            <div class="info-box">
+              <i class="fa-solid fa-calendar-days"></i>
+              <span>Issue Date: 2026-04-27</span>
+            </div>
+
+            <div class="info-box">
+              <i class="fa-solid fa-certificate"></i>
+              <span>HCIA-AI V4.0 Course</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="certificate-card">
+
+        <img src="https://www.linkedin.com/dms/prv/image/v2/D4D06AQFjoR8luzsv7w/messaging-image-720/B4DZ4oAwmxKEAU-/0/1778787748964?m=AQISmEo941NBJgAAAZ4oBiJRUbitA9WCOh80THplH3HFo_qahnJCMwrFiGo&ne=1&v=beta&t=D3iP6wAUer1e7pPnioiYuEi4HNcOYY_fMw4AvdRoDuY" alt="Python Certificate">
+
+        <div class="certificate-content">
+
+          <h3>Python Programming</h3>
+
+          <p>
+            Completed Sprints x Microsoft Summer Camp
+            Programming using Python training program.
+          </p>
+
+          <div class="certificate-info">
+
+            <div class="info-box">
+              <i class="fa-brands fa-microsoft"></i>
+              <span>Sprints x Microsoft</span>
+            </div>
+
+            <div class="info-box">
+              <i class="fa-solid fa-clock"></i>
+              <span>Learning Workload: 40 Hours</span>
+            </div>
+
+            <div class="info-box">
+              <i class="fa-solid fa-calendar-days"></i>
+              <span>Issue Date: 2025-08-01</span>
+            </div>
+
+            <div class="info-box">
+              <i class="fa-brands fa-python"></i>
+              <span>Programming using Python</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="contact">
+
+    <div class="section-title">
+
+      <h2>Contact <span>Me</span></h2>
+
+      <p>
+        Feel free to connect with me for opportunities and collaborations.
+      </p>
+
+    </div>
+
+    <div class="contact-box">
+
+      <h3>Get In Touch</h3>
+
+      <p>
+        Let's build smart and impactful AI solutions together.
+      </p>
+
+      <div class="socials">
+
+        <a href="#">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="#">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="#">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Rawan Ahmed | AI & ML Student
+  </footer>
+
+  <script>
+
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+
+      sections.forEach(section => {
+
+        const top = window.scrollY;
+        const offset = section.offsetTop - 150;
+
+        if(top >= offset){
+
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0px)';
+
+        }
+
+      });
+
+    });
+
+    sections.forEach(section => {
+
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = '0.8s ease';
+
+    });
+
+  </script>
+
+</body>
+</html>
