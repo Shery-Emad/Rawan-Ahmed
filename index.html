@@ -22,19 +22,42 @@
       scroll-behavior:smooth;
     }
 
+    :root{
+      --bg:#f4f1ea;
+      --bg2:#e7dfd4;
+      --text:#3b312c;
+      --card:#ffffffc7;
+      --border:#d8cfc2;
+      --main:#9d7b63;
+      --main2:#b99470;
+      --shadow:rgba(0,0,0,0.08);
+    }
+
+    body.dark{
+      --bg:#181714;
+      --bg2:#25221d;
+      --text:#f3ede6;
+      --card:#24211cc7;
+      --border:#3a342d;
+      --main:#d2a679;
+      --main2:#b88a5b;
+      --shadow:rgba(0,0,0,0.4);
+    }
+
     body{
       font-family:'Poppins',sans-serif;
-      background:#07111f;
-      color:white;
+      background:linear-gradient(135deg,var(--bg),var(--bg2));
+      color:var(--text);
       overflow-x:hidden;
+      transition:0.4s;
     }
 
     body::before{
       content:'';
       position:fixed;
-      width:500px;
-      height:500px;
-      background:#00d4ff30;
+      width:450px;
+      height:450px;
+      background:#c8a98d30;
       filter:blur(120px);
       top:-120px;
       left:-100px;
@@ -44,9 +67,9 @@
     body::after{
       content:'';
       position:fixed;
-      width:400px;
-      height:400px;
-      background:#8b5cf630;
+      width:350px;
+      height:350px;
+      background:#b88a5b30;
       filter:blur(120px);
       bottom:-120px;
       right:-80px;
@@ -58,19 +81,23 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:25px 8%;
+      padding:22px 8%;
       position:fixed;
       top:0;
       z-index:1000;
       backdrop-filter:blur(18px);
-      background:rgba(5,12,22,0.55);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.2);
+      border-bottom:1px solid var(--border);
+    }
+
+    body.dark nav{
+      background:rgba(20,20,20,0.4);
     }
 
     .logo{
       font-size:28px;
       font-weight:700;
-      color:#00d4ff;
+      color:var(--main);
       letter-spacing:1px;
     }
 
@@ -81,11 +108,12 @@
     }
 
     nav ul li a{
-      color:white;
+      color:var(--text);
       text-decoration:none;
       font-size:15px;
       transition:0.3s;
       position:relative;
+      font-weight:500;
     }
 
     nav ul li a::after{
@@ -95,12 +123,24 @@
       bottom:-6px;
       width:0%;
       height:2px;
-      background:#00d4ff;
+      background:var(--main);
       transition:0.3s;
     }
 
     nav ul li a:hover::after{
       width:100%;
+    }
+
+    .theme-btn{
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      border:none;
+      background:var(--card);
+      color:var(--main);
+      cursor:pointer;
+      font-size:18px;
+      box-shadow:0 5px 15px var(--shadow);
     }
 
     .hero{
@@ -120,7 +160,7 @@
 
     .hero-text h3{
       font-size:24px;
-      color:#cbd5e1;
+      color:var(--main2);
       margin-bottom:10px;
     }
 
@@ -132,22 +172,23 @@
     }
 
     .hero-text h1 span{
-      color:#00d4ff;
+      color:var(--main);
     }
 
     .hero-text h2{
       font-size:30px;
       font-weight:500;
       margin-bottom:22px;
-      color:#94a3b8;
+      color:var(--main2);
     }
 
     .hero-text p{
-      color:#cbd5e1;
+      color:var(--text);
       line-height:1.9;
       max-width:620px;
       margin-bottom:35px;
       font-size:16px;
+      opacity:0.9;
     }
 
     .buttons{
@@ -166,14 +207,14 @@
     }
 
     .primary{
-      background:linear-gradient(135deg,#00d4ff,#6d5dfc);
+      background:linear-gradient(135deg,var(--main),var(--main2));
       color:white;
-      box-shadow:0 10px 30px rgba(0,212,255,0.3);
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
     }
 
     .secondary{
-      border:2px solid #00d4ff;
-      color:#00d4ff;
+      border:2px solid var(--main);
+      color:var(--main);
     }
 
     .btn:hover{
@@ -191,15 +232,12 @@
       width:370px;
       height:430px;
       border-radius:35px;
-      background:linear-gradient(
-      145deg,
-      rgba(255,255,255,0.08),
-      rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.08);
+      background:var(--card);
+      border:1px solid var(--border);
       backdrop-filter:blur(15px);
       position:relative;
       overflow:hidden;
-      box-shadow:0 25px 60px rgba(0,0,0,0.45);
+      box-shadow:0 25px 60px var(--shadow);
       display:flex;
       justify-content:center;
       align-items:center;
@@ -210,7 +248,7 @@
       position:absolute;
       width:220px;
       height:220px;
-      background:#00d4ff40;
+      background:#d7b39150;
       border-radius:50%;
       filter:blur(80px);
       top:-40px;
@@ -219,7 +257,7 @@
 
     .image-box i{
       font-size:180px;
-      color:#00d4ff;
+      color:var(--main);
       z-index:2;
     }
 
@@ -238,25 +276,38 @@
     }
 
     .section-title span{
-      color:#00d4ff;
+      color:var(--main);
     }
 
     .section-title p{
-      color:#94a3b8;
+      color:var(--text);
       max-width:650px;
       margin:auto;
       line-height:1.8;
+      opacity:0.8;
+    }
+
+    .about-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
     }
 
     .about-box{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
+      background:var(--card);
+      border:1px solid var(--border);
       border-radius:30px;
-      padding:50px;
+      padding:45px;
       line-height:2;
-      color:#dbeafe;
-      font-size:17px;
-      box-shadow:0 20px 40px rgba(0,0,0,0.25);
+      color:var(--text);
+      font-size:16px;
+      box-shadow:0 20px 40px var(--shadow);
+      transition:0.4s;
+      backdrop-filter:blur(12px);
+    }
+
+    .about-box:hover{
+      transform:translateY(-8px);
     }
 
     .skills-container{
@@ -266,25 +317,25 @@
     }
 
     .skill-card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
+      background:var(--card);
+      border:1px solid var(--border);
       padding:35px 25px;
       border-radius:25px;
       text-align:center;
       transition:0.4s;
       backdrop-filter:blur(12px);
+      box-shadow:0 10px 25px var(--shadow);
     }
 
     .skill-card:hover{
       transform:translateY(-12px);
-      border-color:#00d4ff;
-      box-shadow:0 15px 35px rgba(0,212,255,0.18);
+      border-color:var(--main);
     }
 
     .skill-card i{
       font-size:52px;
       margin-bottom:18px;
-      color:#00d4ff;
+      color:var(--main);
     }
 
     .skill-card h3{
@@ -293,9 +344,10 @@
     }
 
     .skill-card p{
-      color:#cbd5e1;
+      color:var(--text);
       line-height:1.8;
       font-size:15px;
+      opacity:0.85;
     }
 
     .certificate-grid{
@@ -305,18 +357,18 @@
     }
 
     .certificate-card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
+      background:var(--card);
+      border:1px solid var(--border);
       border-radius:28px;
       overflow:hidden;
       transition:0.4s;
       backdrop-filter:blur(12px);
-      box-shadow:0 15px 35px rgba(0,0,0,0.25);
+      box-shadow:0 15px 35px var(--shadow);
     }
 
     .certificate-card:hover{
       transform:translateY(-10px);
-      border-color:#00d4ff;
+      border-color:var(--main);
     }
 
     .certificate-card img{
@@ -332,13 +384,14 @@
     .certificate-content h3{
       font-size:26px;
       margin-bottom:15px;
-      color:#00d4ff;
+      color:var(--main);
     }
 
     .certificate-content p{
-      color:#cbd5e1;
+      color:var(--text);
       line-height:1.9;
       margin-bottom:20px;
+      opacity:0.85;
     }
 
     .certificate-info{
@@ -351,23 +404,24 @@
       display:flex;
       align-items:center;
       gap:14px;
-      background:rgba(255,255,255,0.05);
+      background:rgba(255,255,255,0.1);
       padding:16px 20px;
       border-radius:16px;
-      border:1px solid rgba(255,255,255,0.08);
+      border:1px solid var(--border);
     }
 
     .info-box i{
-      color:#00d4ff;
+      color:var(--main);
       font-size:20px;
     }
 
     .contact-box{
       text-align:center;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
+      background:var(--card);
+      border:1px solid var(--border);
       padding:60px 30px;
       border-radius:30px;
+      box-shadow:0 15px 35px var(--shadow);
     }
 
     .contact-box h3{
@@ -376,9 +430,10 @@
     }
 
     .contact-box p{
-      color:#cbd5e1;
+      color:var(--text);
       margin-bottom:30px;
       line-height:1.8;
+      opacity:0.85;
     }
 
     .socials{
@@ -396,24 +451,26 @@
       justify-content:center;
       border-radius:50%;
       text-decoration:none;
-      color:white;
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.08);
+      color:var(--main);
+      background:var(--card);
+      border:1px solid var(--border);
       transition:0.4s;
       font-size:20px;
     }
 
     .socials a:hover{
-      background:#00d4ff;
+      background:var(--main);
+      color:white;
       transform:translateY(-6px);
     }
 
     footer{
       text-align:center;
       padding:28px;
-      color:#94a3b8;
-      border-top:1px solid rgba(255,255,255,0.08);
+      color:var(--text);
+      border-top:1px solid var(--border);
       margin-top:50px;
+      opacity:0.7;
     }
 
     @media(max-width:992px){
@@ -498,6 +555,10 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
 
+    <button class="theme-btn" id="themeToggle">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
   </nav>
 
   <section class="hero" id="home">
@@ -541,36 +602,49 @@
 
   </section>
 
-  <section id="about">
+  <!-- ABOUT -->
 
-    <div class="section-title">
+<section id="about">
 
-      <h2>About <span>Me</span></h2>
+<div class="section-title">
 
-      <p>
-        AI student passionate about building smart systems and solving problems.
-      </p>
+<h2>About <span>Me</span></h2>
 
-    </div>
-
-   <div class="about-box">
-
-  I am a Computer Science student at Fayoum University
-  specializing in Artificial Intelligence and Machine Learning
-  (2023 - 2027).<br>
-
-  I have experience in Python and C++ programming
-  and I enjoy solving programming problems and improving
-  my logical thinking skills.
-
-  I completed AI training programs and technical courses
-  including Huawei ICT Academy HCIA-AI and
-  Sprints x Microsoft Python Training.
+<p>
+AI student passionate about building smart systems and solving problems.
+</p>
 
 </div>
 
-  </section>
+<div class="about-container">
 
+<div class="about-box">
+
+<h3 style="margin-bottom:15px;color:var(--main);">Education</h3>
+
+I am a Computer Science student at Fayoum University
+specializing in Artificial Intelligence and Machine Learning
+(2023 - 2027).
+
+</div>
+
+<div class="about-box">
+
+<h3 style="margin-bottom:15px;color:var(--main);">Experience & Interests</h3>
+
+I have experience in Python and C++ programming
+and I enjoy solving programming problems and improving
+my logical thinking skills.
+
+I completed AI training programs and technical courses
+including Huawei ICT Academy HCIA-AI and
+Sprints x Microsoft Python Training.
+
+</div>
+
+</div>
+
+</section>
   <section id="skills">
 
     <div class="section-title">
@@ -677,7 +751,7 @@
 
       <div class="certificate-card">
 
-       <!-- <img src="https://github.com/Shery-Emad/Rawan-Ahmed/blob/main/rawan%20certificate.jpeg" alt="Huawei Certificate"> -->
+       <!-- <img src="https://www.linkedin.com/dms/prv/image/v2/D4D06AQFvZ--egOyjFA/messaging-image-720/B4DZ4oAyDmHMAU-/0/1778787754763?m=AQKSoT5bNSTZnAAAAZ4oAykY-WNPa_Dj4q0ZiOIYOqbwiF-16d2n7vrRZ8E&ne=1&v=beta&t=pWqSi7JO8dC3-ss7bKkERFXwcTmEdXGN61g5xUPBlz0" alt="Huawei Certificate">-->
 
         <div class="certificate-content">
 
@@ -713,7 +787,7 @@
 
       <div class="certificate-card">
 
-      <!--  <img src="https://github.com/Shery-Emad/Rawan-Ahmed/blob/main/1778787748964.png" alt="Python Certificate">  -->
+        <!--<img src="https://www.linkedin.com/dms/prv/image/v2/D4D06AQFjoR8luzsv7w/messaging-image-720/B4DZ4oAwmxKEAU-/0/1778787748964?m=AQISmEo941NBJgAAAZ4oBiJRUbitA9WCOh80THplH3HFo_qahnJCMwrFiGo&ne=1&v=beta&t=D3iP6wAUer1e7pPnioiYuEi4HNcOYY_fMw4AvdRoDuY" alt="Python Certificate">-->
 
         <div class="certificate-content">
 
@@ -776,24 +850,27 @@
     Let's build smart and impactful AI solutions together.
   </p>
 
-  <!-- Contact Info -->
-  <div style="margin-bottom:25px; line-height:2; color:#cbd5e1;">
-      <p>
-    📍 Location:
-    <span style="color:#00d4ff;">
-      Fayoum, Egypt
-    </span>
+  <div style="margin-bottom:25px; line-height:2; color:var(--text);">
+
+    <p>
+      📍 Location:
+      <span style="color:var(--main);">
+        Fayoum, Egypt
+      </span>
     </p>
+
     <p>
       📞 Phone:
-      <a href="tel:+201234567890" style="color:#00d4ff; text-decoration:none;">
+      <a href="tel:+201234567890"
+      style="color:var(--main); text-decoration:none;">
         +201155511864
       </a>
     </p>
 
     <p>
       📧 Email:
-      <a href="mailto:rawan.ahmed@email.com" style="color:#00d4ff; text-decoration:none;">
+      <a href="mailto:rawan.ahmed@email.com"
+      style="color:var(--main); text-decoration:none;">
          ra2613@fayoum.edu.eg
       </a>
     </p>
@@ -817,7 +894,6 @@
   </div>
 
 </div>
-    </div>
 
   </section>
 
@@ -827,33 +903,53 @@
 
   <script>
 
-    const sections = document.querySelectorAll('section');
+const toggleBtn = document.getElementById("themeToggle");
 
-    window.addEventListener('scroll', () => {
+toggleBtn.onclick = () => {
 
-      sections.forEach(section => {
+  document.body.classList.toggle("dark");
 
-        const top = window.scrollY;
-        const offset = section.offsetTop - 150;
+  if(document.body.classList.contains("dark")){
 
-        if(top >= offset){
+    toggleBtn.innerHTML =
+    '<i class="fa-solid fa-sun"></i>';
 
-          section.style.opacity = '1';
-          section.style.transform = 'translateY(0px)';
+  }else{
 
-        }
+    toggleBtn.innerHTML =
+    '<i class="fa-solid fa-moon"></i>';
 
-      });
+  }
 
-    });
+};
 
-    sections.forEach(section => {
+const sections = document.querySelectorAll('section');
 
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(40px)';
-      section.style.transition = '0.8s ease';
+window.addEventListener('scroll', () => {
 
-    });
+  sections.forEach(section => {
+
+    const top = window.scrollY;
+    const offset = section.offsetTop - 150;
+
+    if(top >= offset){
+
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0px)';
+
+    }
+
+  });
+
+});
+
+sections.forEach(section => {
+
+  section.style.opacity = '0';
+  section.style.transform = 'translateY(40px)';
+  section.style.transition = '0.8s ease';
+
+});
 
   </script>
 
